@@ -115,25 +115,64 @@ main#main-content {
 @media (max-width: 700px) {
   .sidebar {
     position: static;
-    width: 100%;
+    width: 100vw;
+    min-width: 0;
     flex-direction: row;
-    height: auto;
-    min-height: 60px;
+    height: 60px;
     box-shadow: 0 2px 8px #0001;
+    z-index: 10;
   }
   .sidebar-header { padding: 0.5rem; }
   .sidebar-nav ul {
-    flex-direction: column;
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    overflow-x: auto;
+    gap: 0.2rem;
   }
   .sidebar-nav a {
-    width: 100%;
-    margin: 0.2rem 0;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.98rem;
+    width: auto;
+    margin: 0.2rem 0.2rem;
     border-radius: 8px;
     justify-content: flex-start;
   }
-  main#main-content { margin-left: 0; margin-top: 60px; }
+  main#main-content { margin-left: 0; margin-top: 60px; padding: 1rem 0.2rem 2rem 0.2rem; }
+  #sidebar-actions {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    gap: 0.7rem;
+    width: 100vw;
+  }
+  .sidebar-action-btn {
+    min-width: 32px;
+    min-height: 28px;
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+  }
+  #app-header {
+    right: 0.2rem;
+    padding: 0;
+    top: 0.2rem;
+  }
+  .header-right {
+    gap: 0.7rem;
+    padding: 0.5rem 0.5rem;
+  }
 }
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+main#main-content {
+  width: 100vw;
+  box-sizing: border-box;
+}
+/* ...existing code... */
 #app-header {
   position: absolute !important;
   top: 0;

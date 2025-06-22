@@ -116,18 +116,18 @@
     header.style.boxShadow = 'none';
     header.innerHTML = `
       <div class="header-right" style="display:flex;align-items:center;gap:1.2rem;padding:0.7rem 1.2rem;">
-        <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo escuro"><i class="fa-solid fa-${document.body.classList.contains('dark') ? 'sun' : 'moon'}"></i></button>
         <div class="profile-menu">
           <button class="profile-btn" id="profile-btn" title="Perfil"><i class="fa-solid fa-user"></i> ${getCurrentUser() ? getCurrentUser().nome : ''} <i class="fa-solid fa-caret-down"></i></button>
           <div class="profile-dropdown" id="profile-dropdown" style="display:none;">
             <button id="edit-profile-btn"><i class="fa-solid fa-pen"></i> Editar Perfil</button>
             <button id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+            <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo escuro" style="width:100%;text-align:left;"><i class="fa-solid fa-${document.body.classList.contains('dark') ? 'sun' : 'moon'}"></i> Modo ${document.body.classList.contains('dark') ? 'Claro' : 'Escuro'}</button>
           </div>
         </div>
       </div>
     `;
     document.body.appendChild(header);
-    // Darkmode toggle
+    // Darkmode toggle (apenas no dropdown do perfil)
     header.querySelector('#darkmode-toggle').onclick = () => {
       setDarkMode(!document.body.classList.contains('dark'));
       renderHeader();
